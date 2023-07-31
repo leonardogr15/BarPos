@@ -1,0 +1,47 @@
+# .gitignore
+
+# Archivos de configuración y claves secretas
+*.pyc
+*.pyo
+*.env
+*.env.*
+*.sqlite3
+__pycache__/
+media/
+
+# Directorios generados por Django
+*.pyc
+db.sqlite3
+/media
+__pycache__
+myvenv
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+.pytest_cache
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+.html
+.coverage
+.coverage.*
+.cache
+.pytest_cache
+nosetests.xml
+coverage.xml
+*.sqlite3
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+.venv
+.eggs/
+*.egg
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
