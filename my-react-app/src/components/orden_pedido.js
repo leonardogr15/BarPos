@@ -27,24 +27,25 @@ const OrdenPedido = () => {
     });
 
     useEffect(() => {
-        const fetchData = async (url, key) => {
+        const fetchData = async (url) => {
             try {
                 const response = await axios.get(url);
-                setCarouselData((prevState) => ({ ...prevState, [key]: response.data }));
+                const allItems = response.data;
+                // Categorize the items into separate arrays
+                const categorizedItems = {
+                    bebidas: allItems.filter((item) => item.category === 'bebidas'),
+                    comidas: allItems.filter((item) => item.category === 'comida'),
+                    cocteles: allItems.filter((item) => item.category === 'cocteles'),
+                    cristaleria: allItems.filter((item) => item.category === 'cristaleria'),
+                };
+                setCarouselData(categorizedItems);
             } catch (error) {
                 console.error('Error al guardar los datos:', error);
             }
         };
 
-        fetchData('http://localhost:8000/bebidas-api/bebidas/', 'bebidas');
-        fetchData('http://localhost:8000/comidas-api/comidas/', 'comidas');
-        fetchData('http://localhost:8000/cocteles-api/cocteles/', 'cocteles');
-        fetchData('http://localhost:8000/cristaleria-api/cristaleria/', 'cristaleria');
+        fetchData('http://localhost:8000/items-api/items/');
     }, []);
-
-    const handleFilterChange = (filter) => {
-        setFilter((prevFilter) => (prevFilter === filter ? 'all' : filter));
-    };
 
     const handleMesaChange = (event) => {
         setSelectedMesa(event.target.value);

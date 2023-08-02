@@ -38,11 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Bebidas',
-    'Comidas',
-    'Cristaleria',
-    'Cocteles',
-    'Orden'
+    'Orden',
+    'items'
 ]
 
 MIDDLEWARE = [
@@ -84,7 +81,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Empresa2',
+        'NAME': 'Nueva2',
         'USER': 'postgres',
         'PASSWORD': 'sa123',
         'HOST': 'localhost',  # Si tu base de datos está en otro servidor, coloca su dirección IP o nombre aquí

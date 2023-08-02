@@ -23,8 +23,5 @@ urlpatterns = [
     path('',TemplateView.as_view(template_name='index.html')),
     path('pedidos/',TemplateView.as_view(template_name='index.html')),
     path('Admin/',TemplateView.as_view(template_name='index.html')),
-    path('bebidas-api/', include('Bebidas.urls')),
-    path('comidas-api/', include('Comidas.urls')),
-    path('cocteles-api/', include('Cocteles.urls')),
-    path('cristaleria-api/', include('Cristaleria.urls')),
+    path('items-api/', include('items.urls')),
 ]
