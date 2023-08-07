@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input, Label } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, FormGroup, Input } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
 
 class Modal_view extends React.Component {
@@ -18,7 +18,6 @@ class Modal_view extends React.Component {
 
 
   render() {
-    const { abierto } = this.state;
     const modalStyles = {
       // position: "absolute",
       // top: '50%',

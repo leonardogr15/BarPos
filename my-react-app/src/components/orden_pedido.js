@@ -6,9 +6,8 @@ import ModalCantidad from './ModalCantidad';
 import ModalTabla from './ModalTabla';
 
 const OrdenPedido = () => {
-    const [filter, setFilter] = useState('all');
     const [selectedMesa, setSelectedMesa] = useState('');
-    const [text, setText] = useState('');
+    const [setText] = useState('');
     const [selectedItems, setSelectedItems] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState(null);
@@ -49,10 +48,6 @@ const OrdenPedido = () => {
 
     const handleMesaChange = (event) => {
         setSelectedMesa(event.target.value);
-    };
-
-    const handleTextChange = (event) => {
-        setText(event.target.value);
     };
 
     const handleSearchTextChange = (category, event) => {

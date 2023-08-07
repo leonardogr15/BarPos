@@ -36,13 +36,13 @@ const Navbar = () => {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <>
+    <div>
       <IconContext.Provider value={{ color: "undefined" }}>
         <div className="navbar">
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <span className="empresa-message">Empresa</span>
+          <span className="empresa-message">Empresa #2</span>
           <Reloj />
         </div>
         
@@ -66,7 +66,7 @@ const Navbar = () => {
           </ul>
         </nav>
       </IconContext.Provider>
-    </>
+    </div>
   );
 }
 
