@@ -24,4 +24,5 @@ urlpatterns = [
     path('pedidos/',TemplateView.as_view(template_name='index.html')),
     path('Admin/',TemplateView.as_view(template_name='index.html')),
     path('items-api/', include('items.urls')),
+    path('orden-api/', include('Orden.urls')),
 ]

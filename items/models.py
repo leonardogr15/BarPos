@@ -8,6 +8,7 @@ class Items(models.Model):
     descripcion = models.CharField(max_length=100)
     precio = models.DecimalField(max_digits=8, decimal_places=2)
     categoria = models.CharField(max_length=100)
+    quantity = models.IntegerField(default=0)
     is_activate = models.BooleanField(default=True)
 
     def __str__(self):

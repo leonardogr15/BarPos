@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import OrdenPedido from './orden_pedido'
+import OrdenesCons from './ordenes_consulta'
 
 class ViewPanels extends React.Component {
     constructor(props) {
@@ -44,7 +45,7 @@ class ViewPanels extends React.Component {
                     <OrdenPedido />
                 </div>
                 <div className={`panel ${activePanel === 2 ? 'active' : ''}`} id="panel2">
-                    Contenido del segundo panel
+                    <OrdenesCons />
                 </div>
                 <div className={`panel ${activePanel === 3 ? 'active' : ''}`} id="panel3">
                     Contenido del tercer panel

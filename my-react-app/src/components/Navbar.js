@@ -42,7 +42,7 @@ const Navbar = () => {
           <Link to="#" className="menu-bars">
             <FaIcons.FaBars onClick={showSidebar} />
           </Link>
-          <span className="empresa-message">Empresa #2</span>
+          <span className="empresa-message">Empresa</span>
           <Reloj />
         </div>
         

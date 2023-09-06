@@ -4,6 +4,8 @@ import axios from 'axios';
 import CarouselItems from './CarouselItems';
 import ModalCantidad from './ModalCantidad';
 import ModalTabla from './ModalTabla';
+import swal from 'sweetalert';
+
 
 const OrdenPedido = () => {
     const [selectedMesa, setSelectedMesa] = useState('');
@@ -39,7 +41,7 @@ const OrdenPedido = () => {
                 };
                 setCarouselData(categorizedItems);
             } catch (error) {
-                console.error('Error al guardar los datos:', error);
+                console.error('Error al consultar los datos de items:', error);
             }
         };
 
@@ -84,12 +86,34 @@ const OrdenPedido = () => {
         setIsModalOpen((prevState) => !prevState);
         setSelectedItem(modalType === 'main' ? null : selectedItem);
     };
+    const save_orden = (orden) => {
+        console.log('Esto dentro de la orden ',orden);
+        axios.post('http://localhost:8000/orden-api/ordenes/',orden)
+        .then((response) => {
+            console.log('Respuesta de la API:', response.data);
+            return true
+          })
+          .catch((error) => {
+            console.error('Error al enviar los datos:', error);
+            return false
+          });
+    };
 
-    const toggleModalTabla = (modalType) => {
+    const toggleModalTabla = async(modalType,orden) => {
         setShowTable((prevShowTable) => !prevShowTable);
-        console.log('esto ',modalType);
+
         if(modalType==='items'){
+            const orden_save = await save_orden(orden);
             handleClearSelectedItems();
+        }
+        else if(modalType==='no-items'){
+            swal({
+                title:'Error!',
+                text:'Debes seleccionar un item o la mesa',
+                icon:'warning',
+                button:'Aceptar',
+                timer:'5000'
+            })
         }
     };
 
@@ -210,6 +234,7 @@ const OrdenPedido = () => {
                 toggleModalTabla={toggleModalTabla}
                 onAddToSelectedItems={handleAddToSelectedItems}
                 selectedMesa={selectedMesa}
+                show_buttom={true}
             />
         </div>
     );

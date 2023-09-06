@@ -14,8 +14,13 @@ class ModalTabla extends React.Component {
   };
 
   handleAddToSelectedItems = () => {
-    const { toggleModalTabla } = this.props;
-    toggleModalTabla('items');
+    const { toggleModalTabla,selectedItems,selectedMesa } = this.props;
+    const orden ={
+      orden_items: selectedItems,
+      mesa:selectedMesa
+    }
+    const validation_items = selectedMesa && Object.keys(selectedItems).length>=1 ? 'items' : 'no-items';
+    toggleModalTabla(validation_items,orden||{});
 };
 
   componentDidUpdate(prevProps) {
@@ -26,12 +31,12 @@ class ModalTabla extends React.Component {
   }
 
   render() {
-    const { selectedItems, isOpen, toggleModalTabla, selectedMesa } = this.props;
+    const { selectedItems, isOpen, toggleModalTabla, selectedMesa,show_buttom } = this.props;
     const selectedItemsArray = Object.values(selectedItems);
 
     return (
-      <Modal isOpen={isOpen} toggle={toggleModalTabla}>
-        <ModalHeader toggle={toggleModalTabla}>Confirmar orden - Mesa #{selectedMesa}</ModalHeader>
+      <Modal isOpen={isOpen} toggle={toggleModalTabla} >
+        <ModalHeader toggle={toggleModalTabla}>Orden - Mesa #{selectedMesa}</ModalHeader>
         <ModalBody className='modal-cantidad'>
           <Table>
             <thead>
@@ -53,8 +58,10 @@ class ModalTabla extends React.Component {
           </Table>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={this.handleAddToSelectedItems}>Confirmar orden</Button>
-          <Button color="danger" onClick={toggleModalTabla}>Cancelar</Button>
+          {show_buttom && ( // Condición para mostrar el botón si ordenes es true
+              <Button color="primary" onClick={this.handleAddToSelectedItems}>Confirmar orden</Button>
+          )}
+          <Button color="danger" onClick={toggleModalTabla}>Cerrar</Button>
         </ModalFooter>
       </Modal>
     );

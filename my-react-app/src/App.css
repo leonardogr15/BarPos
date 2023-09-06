@@ -52,6 +52,7 @@
   font-size: 2rem;
   background: none;
   color: #000;
+  
 }
 
 .nav-menu {
@@ -64,6 +65,7 @@
   left: -100%;
   transition: 850ms;
   padding-left: 0; /* Add this line to remove left padding */
+  z-index: 1000;
 }
 
 .nav-menu.active {
