@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path('ordenes/', views.OrdenesListCreateView.as_view(), name='ordenes-list-create'),
+    path('ordenes-delete/<uuid:pk>/', views.OrdenesListCreateView.as_view(), name='ordenes-list-create'),
     path('ordenes-put/<uuid:pk>/', views.OrdenesListCreateView.as_view(), name='ordenes-list-create'),
 ]

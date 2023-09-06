@@ -87,7 +87,6 @@ const OrdenPedido = () => {
         setSelectedItem(modalType === 'main' ? null : selectedItem);
     };
     const save_orden = (orden) => {
-        console.log('Esto dentro de la orden ',orden);
         axios.post('http://localhost:8000/orden-api/ordenes/',orden)
         .then((response) => {
             console.log('Respuesta de la API:', response.data);

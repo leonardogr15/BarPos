@@ -88,10 +88,13 @@ class OrdenesListCreateView(generics.ListCreateAPIView):
 
         return Response(True)
 
-    def delete(self, request, *args, **kwargs):
-        instance = self.get_object()
-        instance.ordendetail_set.all().delete()  # Elimina todos los detalles de la orden
-        instance.delete()  # Elimina la orden en sí
+    def delete(self, request,pk, *args, **kwargs):
+        detail = OrdenDetail.objects.filter(orden_id=pk)
+        for a in detail:
+            a.delete()
+        
+        ord_d =Orden.objects.get(id=pk)
+        ord_d.delete()
         return Response(True)
 
 class OrdenesRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):

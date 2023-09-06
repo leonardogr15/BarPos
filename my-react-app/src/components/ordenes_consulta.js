@@ -18,7 +18,6 @@ const OrdenesCons = () =>  {
         setShowTable(true);
         setSelectedItems(Object.assign({}, items));
         setSelectedMesa(mesa)
-        console.log('los items ',Object.assign({}, items));
     };
     const handleTablaModificar = (items,mesa,consecutivo,orden_id) => {
         setShowTableMod(true);
@@ -26,6 +25,15 @@ const OrdenesCons = () =>  {
         setSelectedMesa(mesa)
         setConsecutivo(consecutivo)
         setorden_id(orden_id)
+    };
+    const delete_table = async(orden_id) => {
+        console.log('Llegamos aqui ',orden_id);
+        try {
+            await axios.delete(`http://localhost:8000/orden-api/ordenes-delete/${orden_id}/`);
+            fetchData('http://localhost:8000/orden-api/ordenes/')
+        } catch (error) {
+            console.error('Error al modificar la orden:', error);
+        }
     };
 
     const toggleModalTabla = (items) => {
@@ -75,7 +83,7 @@ const OrdenesCons = () =>  {
                     <div className="d-flex justify-content-center" style={{ marginTop: "auto", marginBottom: "5px"}}>
                         <Button color="primary" className="mr-2" onClick={() => handleTabla(orden.items,orden.mesa)}>Ver</Button>
                         <Button color="info" className="mr-2" onClick={() => handleTablaModificar(orden.items,orden.mesa,orden.consecutivo,orden.orden_id)}>Modificar</Button>
-                        <Button color="danger" className="mr-2">Eliminar</Button>
+                        <Button color="danger" className="mr-2"onClick={() => delete_table(orden.orden_id)}>Eliminar</Button>
                         <Button color="success">Entregar</Button>
                     </div>
                 </Card>
