@@ -68,7 +68,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR,'core/frontend/build')
+            os.path.join(BASE_DIR,'core/frontend_barpos/build')
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -148,7 +148,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'core/frontend/build/static')
+    os.path.join(BASE_DIR,'core/frontend_barpos/build/static')
 ]
 
 AUTH_USER_MODEL ='userprofiles.UserProfile'

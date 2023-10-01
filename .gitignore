@@ -3,5 +3,4 @@
 migrations/*
 !apply_migrate.py
 node_modules
-core/frontend/*
-!core/frontend/build
+

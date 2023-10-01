@@ -1,0 +1,4 @@
+[submodule "core/frontend_barpos"]
+	path = core/frontend_barpos
+	url = https://github.com/leonardogr15/Frontend_BarPos.git 
+	branch = v1.2
