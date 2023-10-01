@@ -3,4 +3,4 @@
 migrations/*
 !apply_migrate.py
 node_modules
-
+core/frontend_barpos
