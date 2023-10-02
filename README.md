@@ -18,3 +18,8 @@ sqlparse            0.4.4
 typing_extensions   4.7.1
 tzdata              2023.3
 wheel               0.41.0
+
+Para la aplicacion frontend requiere la instalacion de 
+*npm install react-router-dom
+*npm install react-icons
+
