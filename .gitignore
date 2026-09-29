@@ -1,6 +1,13 @@
-*__init__*
-*__pycache__*
-migrations/*
-!apply_migrate.py
-node_modules
-core/frontend_barpos
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Node / frontend
+node_modules/
